@@ -57,7 +57,13 @@ module Roadie
     end
 
     def download(url)
-      url = "https:#{url}" if url.start_with?("//")
+      if url.start_with?("//")
+        if ENV['RAILS_ENV']=='development'
+          url = "http:#{url}" 
+        else
+          url = "https:#{url}" 
+        end
+      end
       uri = URI.parse(url)
       if access_granted_to?(uri.host)
         get_response(uri)
