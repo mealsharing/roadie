@@ -101,7 +101,7 @@ module Roadie
     def serialize_document(dom)
       # #dup is called since it fixed a few segfaults in certain versions of Nokogiri
       save_options = Nokogiri::XML::Node::SaveOptions
-      dom.dup.to_html(
+      dom.dup.to_xhtml(
         save_with: (
           save_options::NO_DECLARATION | save_options::NO_EMPTY_TAGS | save_options::AS_HTML
         )
