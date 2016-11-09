@@ -103,7 +103,7 @@ module Roadie
       save_options = Nokogiri::XML::Node::SaveOptions
       dom.dup.to_xhtml(
         save_with: (
-          save_options::NO_DECLARATION | save_options::NO_EMPTY_TAGS | save_options::AS_HTML
+          save_options::NO_DECLARATION | save_options::NO_EMPTY_TAGS | save_options::AS_XHTML
         )
       )
     end
